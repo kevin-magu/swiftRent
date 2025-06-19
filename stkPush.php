@@ -56,7 +56,7 @@ $timestamp = date('YmdHis');
 $password = base64_encode($shortCode . $passkey . $timestamp);
 
 $stkUrl = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
-$callbackUrl = 'https://yourdomain.com/callback.php'; // Replace with your callback URL
+$callbackUrl = 'https://tri-sparkaviation.com/mpesa/callback.php'; // Replace with your callback URL
 
 $postData = [
     'BusinessShortCode' => $shortCode,
