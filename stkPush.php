@@ -85,6 +85,13 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($postData));
 $response = curl_exec($ch);
 curl_close($ch);
 
+if (curl_errno($ch)) {
+    $error_msg = curl_error($ch);
+    file_put_contents('curl_error_log.txt', "cURL error: $error_msg\n", FILE_APPEND);
+} else {
+    file_put_contents('curl_response_log.json', $response, FILE_APPEND);
+}
+
 $result = json_decode($response);
 
 if (isset($result->ResponseCode) && $result->ResponseCode == '0') {
